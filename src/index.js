@@ -13,8 +13,8 @@ import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
     context: {
       "kind": "user",
       "key": "user-key-123abc",
-      "name": "Brad Bunce",
-      "email": "brad@launchdarkly.com"
+      "name": "Your User",
+      "email": "user@yourdomain.com"
     },
     options: {
       streaming: true
