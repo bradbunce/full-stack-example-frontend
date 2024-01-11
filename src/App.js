@@ -6,7 +6,7 @@ import ldLogo from "./img/ldLogo_gray.svg";
 import ClientLogo from "./components/clientLogo";
 
 function App() {
-  const [facts, setFacts] = useState([]);
+  const [logos, setLogos] = useState([]);
   const [listening, setListening] = useState(false);
   let logo;
 
@@ -17,17 +17,17 @@ function App() {
       events.onmessage = (event) => {
         const parsedData = JSON.parse(event.data);
 
-        setFacts(function (facts) {
-          facts = parsedData;
-          return facts;
+        setLogos(function (logos) {
+          logos = parsedData;
+          return logos;
         });
       };
 
       setListening(true);
     }
-  }, [listening, facts]);
+  }, [listening, logos]);
 
-  if (facts.source === "TRUE") {
+  if (logos.source === "TRUE") {
     logo = nodejsLogo;
   } else {
     logo = ldLogo;
@@ -44,7 +44,7 @@ function App() {
         <header className="App-header">
           <p><b>Node.js</b> server-side feature flag</p>
           <img src={logo} className="App-logo" alt="" />
-          <p>{facts.info} <b>{facts.source}</b></p>
+          <p>{logos.info} <b>{logos.source}</b></p>
         </header>
       </div>
     </Router>
